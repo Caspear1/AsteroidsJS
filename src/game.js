@@ -11,7 +11,7 @@ function Game(canvas){
 	var roundStartTime;
 	var alienRespawn; //counter to prevent aliens from continually spawning
 
-	var powers = [Powers.StickyShip, Powers.MultiShot, Powers.BigShot, Powers.OneUp, Powers.TimeFreeze, Powers.EMP];
+	var powers = [/*Powers.StickyShip, Powers.MultiShot, Powers.BigShot, Powers.OneUp, Powers.TimeFreeze, Powers.EMP,*/ Powers.TinyShip];
 
 	var powerUps = [];
 	var asteroids = [];

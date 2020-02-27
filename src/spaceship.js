@@ -11,6 +11,7 @@ function spaceship(canvas){
 	var COARSE_TURN_SPEED = 10; //degrees per turn command
 	var lastShot = (new Date()).getTime();
 	var shotDelay = 200; //millis
+	var radius = 20;
 	this.boosterCount = 0;
 	
 	this.getShotDelay = function(){
@@ -59,9 +60,9 @@ function spaceship(canvas){
 	
 	this.getShipPoints = function(){
 		var degAngle = toDegrees(this.angle);
-		return [getArcCoordinates(this.x, this.y, degAngle, 20),
-			getArcCoordinates(this.x, this.y, normalizeAngle(degAngle - 140), 20),
-			getArcCoordinates(this.x, this.y, normalizeAngle(degAngle + 140), 20)];
+		return [getArcCoordinates(this.x, this.y, degAngle, radius),
+			getArcCoordinates(this.x, this.y, normalizeAngle(degAngle - 140), radius),
+			getArcCoordinates(this.x, this.y, normalizeAngle(degAngle + 140), radius)];
 	}
 	
 	this.getBoundingBox = function getBoundingBox(){
@@ -157,9 +158,9 @@ function spaceship(canvas){
 	this.drawBooster = function(){
 		this.boosterCount--;
 		var d_angle = toDegrees(this.angle);
-		var width = randomInt(5, 10);
-		var height = randomInt(10, 20);
-		var tail = vectorAdd({x: this.x, y: this.y}, scaleVector(this.angle, -18));
+		var width = randomInt(5, radius/2);
+		var height = randomInt(10, radius);
+		var tail = vectorAdd({x: this.x, y: this.y}, scaleVector(this.angle, ((radius-2)*-1)));
 		
 		var points = [	getArcCoordinates(tail.x, tail.y, d_angle - 90, width),
 						getArcCoordinates(tail.x, tail.y, d_angle + 90, width),

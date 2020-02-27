@@ -114,6 +114,20 @@ Powers.EMP = new power({
 
 });
 
+Powers.TinyShip = new power({
+	rarity: 2,
+	label: "Tiny Ship!",
+	phase: "update",
+	objectType: spaceship,
+	action: function(item){
+		debugger;
+		spaceship.radius = 5;
+	},
+	deactivate: function(item){
+		spaceship.radius = 20;
+	}
+});
+
 function power(args){
 /*
 
